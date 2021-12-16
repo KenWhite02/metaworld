@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .gradient {
+    background: -webkit-linear-gradient(#ff1b6b, #45caff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .bgGradient {
+    background: hsla(339, 88%, 47%, 1);
+
+    background: linear-gradient(
+      90deg,
+      hsla(339, 88%, 47%, 1) 0%,
+      hsla(260, 72%, 58%, 1) 53%,
+      hsla(197, 100%, 64%, 1) 100%
+    );
+
+    background: -moz-linear-gradient(
+      90deg,
+      hsla(339, 88%, 47%, 1) 0%,
+      hsla(260, 72%, 58%, 1) 53%,
+      hsla(197, 100%, 64%, 1) 100%
+    );
+
+    background: -webkit-linear-gradient(
+      90deg,
+      hsla(339, 88%, 47%, 1) 0%,
+      hsla(260, 72%, 58%, 1) 53%,
+      hsla(197, 100%, 64%, 1) 100%
+    );
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E10F58", endColorstr="#7945E1", GradientType=1 );
+  }
+}
