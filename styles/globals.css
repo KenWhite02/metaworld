@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../assets/sjsbi.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  /* prevent overscroll bounce */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  /* iOS velocity scrolling */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .gradient {
     background: -webkit-linear-gradient(#ff1b6b, #45caff);
@@ -10,10 +38,11 @@
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    /* border: 1px solid grey; */
   }
 
   .bgGradient {
