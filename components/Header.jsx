@@ -44,7 +44,7 @@ const Header = () => {
       </div>
 
       <motion.div
-        className="h-14 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-between px-2 relative w-full text-white"
+        className="h-14 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-between px-2 relative w-full text-white shadow-2xl"
         initial="out"
         animate="in"
         variants={headerAnimation}
