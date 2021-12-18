@@ -19,7 +19,7 @@ const Message = ({ message }) => {
       </div>
 
       <div
-        className={`flex space-x-4 p-3 rounded-lg ${
+        className={`flex space-x-4 p-3 rounded-lg max-w-sm ${
           isUserMessage
             ? 'rounded-br-none bg-fuchsia-600'
             : 'rounded-bl-none bg-indigo-500'
@@ -29,14 +29,14 @@ const Message = ({ message }) => {
       </div>
 
       <TimeAgo
-        className={`text-[10px] italic text-gray-400 ${
+        className={`text-[10px] italic text-white ${
           isUserMessage && 'order-first'
         }`}
         datetime={message.createdAt}
       />
 
       <p
-        className={`absolute -bottom-5 text-xs ${
+        className={`absolute -bottom-4 text-xs ${
           isUserMessage ? 'text-pink-400' : 'text-blue-400'
         }`}
       >

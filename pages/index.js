@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useMoralis } from 'react-moralis';
+import { motion } from 'framer-motion';
 
 import Login from '../components/Login';
 import Header from '../components/Header';
 import Messages from '../components/Messages';
+import { homeAnimation, homeTransition } from '../animations/home';
 
 const Home = () => {
   const { isAuthenticated } = useMoralis();
@@ -12,17 +13,23 @@ const Home = () => {
   if (!isAuthenticated) return <Login />;
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <motion.div
+      className="w-full flex items-center justify-center"
+      initial="out"
+      animate="in"
+      variants={homeAnimation}
+      transition={homeTransition}
+    >
       <Head>
         <title>Metaverse</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-11/12 max-w-7xl my-16 glass rounded-lg shadow-2xl p-6 space-y-20 border-2 border-fuchsia-500">
+      <div className="w-full h-screen bg-black">
         <Header />
         <Messages />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

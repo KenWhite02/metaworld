@@ -5,22 +5,12 @@
 html {
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(../assets/sjsbi.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-}
-
-body {
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  /* prevent overscroll bounce */
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  /* iOS velocity scrolling */
+  background-repeat: no-repeat; */
 }
 
 * {
@@ -31,6 +21,10 @@ body {
 }
 
 @layer utilities {
+  .chat-height {
+    height: calc(92vh - 3.5rem);
+  }
+
   .gradient {
     background: -webkit-linear-gradient(#ff1b6b, #45caff);
     -webkit-background-clip: text;
@@ -43,6 +37,22 @@ body {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     /* border: 1px solid grey; */
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 50px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    background: black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #0b4f6c;
+    border-radius: 50px;
   }
 
   .bgGradient {

@@ -1,0 +1,116 @@
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel__wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__slide {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel__slider::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  bottom: 0vh;
+  left: 0;
+  overflow: hidden;
+  opacity: 0.4;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.carousel__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel__title {
+  position: absolute;
+  top: 60%;
+  left: 10px;
+  font-size: 34px;
+  color: white;
+}
+
+.carousel__number {
+  position: absolute;
+  top: -0;
+  right: 10px;
+  font-size: 84px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+}
+
+.carousel__length {
+  font-size: 36px;
+  color: white;
+}
+
+.carousel__buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 20;
+}
+
+.carousel__button {
+  color: white;
+  cursor: pointer;
+  margin-left: 50px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10%;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.37);
+}

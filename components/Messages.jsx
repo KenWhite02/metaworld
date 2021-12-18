@@ -1,20 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { ByMoralis, useMoralis, useMoralisQuery } from 'react-moralis';
+import { motion } from 'framer-motion';
+
 import Message from './Message';
 import SendMessage from './SendMessage';
+import Profile from './Profile';
+import { messagesAnimation, messagesTransition } from '../animations/messages';
 
 const MINS_DURATION = 1440;
 
 const Messages = () => {
   const { user } = useMoralis();
-
   const endOfMessagesRef = useRef(null);
-
-  const executeScroll = () => endOfMessagesRef.current.scrollIntoView();
-
-  useEffect(() => {
-    executeScroll();
-  }, []);
 
   const { data, loading, error } = useMoralisQuery(
     'Messages',
@@ -32,28 +29,46 @@ const Messages = () => {
   );
 
   return (
-    <div className="text-white pb-32 rounded h-[400px] overflow-y-scroll">
-      <div className="py-5">
-        <ByMoralis
-          variant="dark"
-          style={{ marginLeft: 'auto', marginRight: 'auto', font: '20px' }}
-        />
-      </div>
+    <div className="chat-height flex">
+      <motion.div
+        className="w-full lg:w-2/3 h-full overflow-y-scroll"
+        initial="out"
+        animate="in"
+        variants={messagesAnimation}
+        transition={messagesTransition}
+      >
+        <div className="py-2">
+          <ByMoralis
+            variant="dark"
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              font: '20px',
+            }}
+          />
+        </div>
 
-      <div className="space-y-10 py-4 px-12">
-        {data.map((message) => (
-          <Message key={message.id} message={message} />
-        ))}
-      </div>
+        <div className="space-y-10 px-4">
+          {data.map((message) => (
+            <Message key={message.id} message={message} />
+          ))}
+        </div>
 
-      <div className="flex justify-center">
-        <SendMessage endOfMessagesRef={endOfMessagesRef} />
-      </div>
+        <div className="w-full mb-8">
+          <SendMessage endOfMessagesRef={endOfMessagesRef} />
+        </div>
 
-      <div ref={endOfMessagesRef} className="text-center text-white">
-        <p className="truncate max-w-3xl m-auto">
-          You're up to date {user.getUsername()} 💬
-        </p>
+        <div className="text-center text-white">
+          <p className="truncate max-w-3xl m-auto">
+            You're up to date {user.getUsername()} 💬
+          </p>
+        </div>
+
+        <div className="mb-32" ref={endOfMessagesRef} />
+      </motion.div>
+
+      <div className="hidden w-1/3 lg:block">
+        <Profile />
       </div>
     </div>
   );
