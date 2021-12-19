@@ -62,7 +62,16 @@ const Header = () => {
           </div>
         </div>
 
-        <div ref={menuRef}>
+        <div className="hidden lg:block hover:animate-pulse">
+          <button
+            className="bg-indigo-500 text-white px-4 py-2 rounded-lg font-semibold hover:text-black transition-all duration-1000"
+            onClick={logout}
+          >
+            Logout
+          </button>
+        </div>
+
+        <div className="lg:hidden" ref={menuRef}>
           <BiDotsVerticalRounded className="text-xl" onClick={handleClick} />
           <div
             className={`bg-white shadow-md rounded-sm flex flex-col absolute right-4 z-50 ${
