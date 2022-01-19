@@ -13,9 +13,9 @@ This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](
 In the project root directory, run:
 
 ```zsh
-yarn or Yarn Install
+yarn
 # or
-npm Install
+npm install
 ```
 
 This will install all the projects dependencies.
